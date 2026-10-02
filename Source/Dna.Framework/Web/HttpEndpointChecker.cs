@@ -69,7 +69,7 @@ namespace Dna
                 while (!mDisposing)
                 {
                     // Create defaults
-                    var webResponse = default(HttpWebResponse);
+                    var webResponse = default(System.Net.Http.HttpResponseMessage);
                     var exception = default(Exception);
 
                     // Start by calling the endpoint
@@ -97,10 +97,9 @@ namespace Dna
                     // Figure out the new state
                     //  - If we have a custom parser, ask it for the state based on the response)
                     //  - Otherwise, so long as we have a response of any kind, it's valid
-                    var responsive = validResponseParser?.Invoke(webResponse, exception) ?? webResponse != null;
-
+                    var responsive = (webResponse?.IsSuccessStatusCode ?? false);
                     // Close the web response
-                    webResponse?.Close();
+                    //webResponse?.Close();
 
                     // Log it
                     logger?.LogTraceSource($"HttpEndpointChecker {endpoint} { (responsive ? "is" : "is not") } responsive");

@@ -19,9 +19,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dna.Framework" Version="1.0.7.16" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.3.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.3.11" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dna.Framework\Dna.Framework.csproj" />
   </ItemGroup>
 
 </Project>
